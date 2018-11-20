@@ -21,7 +21,7 @@
 <body>
     {% if language == "en" %}
         <h2>Tag words</h2>
-        <form action="{{ url_for('home_en') }}" method="post">
+        <form action="{{ url_for('home_en') }}" method="get">
             <fieldset>
                 <input type="text" placeholder="Text to process" name="text" required {% if text %} value="{{ text }}{% endif %}">
                 <input type="submit" value="Process">
@@ -29,7 +29,7 @@
         </form>
     {% elif language == "de" %}
         <h2>Schlüsselwörter</h2>
-        <form action="{{ url_for('home_de') }}" method="post">
+        <form action="{{ url_for('home_de') }}" method="get">
             <fieldset>
                 <input type="text" placeholder="Zu bearbeitender Text" name="text" required {% if text %} value="{{ text }}{% endif %}">
                 <input type="submit" value="Process">
