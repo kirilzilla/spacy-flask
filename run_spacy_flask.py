@@ -36,7 +36,7 @@ class NLPToolkit:
             )
         return found_tokens
 
-nlp_es = NLPToolkit('es')
+nlp_de = NLPToolkit('de')
 nlp_en = NLPToolkit('en')
 
 @app.route('/')
@@ -49,11 +49,11 @@ def home_en():
     tokens = nlp_en.tokenize_text(words)
     return render_template('search.html', language="en", text=words, tokens=tokens)
 
-@app.route('/es')
-def home_es_json():
+@app.route('/de')
+def home_de_json():
     words = request.args.get('text', default=None)
-    tokens = nlp_es.tokenize_text(words)
-    return render_template('search.html', language="es", text=words, tokens=tokens)
+    tokens = nlp_de.tokenize_text(words)
+    return render_template('search.html', language="de", text=words, tokens=tokens)
 
 @app.route('/json/en')
 def home_en_json():
@@ -61,10 +61,10 @@ def home_en_json():
     tokens = nlp_en.tokenize_text(words)
     return jsonify(tokens)
 
-@app.route('/json/es')
-def home_es():
+@app.route('/json/de')
+def home_de():
     words = request.args.get('text', default=None)
-    tokens = nlp_es.tokenize_text(words)
+    tokens = nlp_de.tokenize_text(words)
     return jsonify(tokens)
 
 
