@@ -28,7 +28,7 @@
             </fieldset>
         </form>
     {% elif language == "de" %}
-        <h2>Etiqueta palabras</h2>
+        <h2>Schlüsselwörter</h2>
         <form action="{{ url_for('home_de') }}" method="get">
             <fieldset>
                 <input type="text" placeholder="Zu bearbeitender Text" name="text" required {% if text %} value="{{ text }}{% endif %}">
