@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-MAINTAINER Jason Jimenez Cruz
+MAINTAINER KIMU
 
 # Installing base software
 RUN apt-get update && \
@@ -8,11 +8,11 @@ RUN apt-get update && \
     pip3 install --upgrade pip && \
     pip3 install -U spacy && \
     python3 -m spacy download en && \
-    python3 -m spacy download es && \
+    python3 -m spacy download de && \
     pip3 install Flask
 
 # Download scripts from repo
-RUN git clone https://github.com/jasonjimnz/spacy-flask.git spacy-flask
+RUN git clone https://github.com/kirilzilla/spacy-flask.git spacy-flask
 
 EXPOSE 3000
 
