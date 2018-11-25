@@ -48,7 +48,7 @@ def en():
     if filterType and not (filterType.upper() in ['PROPN', 'NOUN', 'VERB', 'ADP']):
         return Response(json.dumps({ "sucess": False, "messages": ["Invalid type!"]}), mimetype='application/json')
     # load as english
-    nlp = en_core_web_sm.load('')
+    nlp = spacy.load('en')
     doc = nlp(text)
     entities = []
     for token in doc:
