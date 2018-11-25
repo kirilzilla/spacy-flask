@@ -69,3 +69,10 @@ def en():
        "user_def_tags": user_def_tags
     }
     return Response(json.dumps(resp), mimetype='application/json', headers={"Access-Control-Allow-Origin": "*"})
+
+if __name__ == '__main__':
+    app.run(
+        host="0.0.0.0",
+        port=5000,
+        debug=True
+    )
