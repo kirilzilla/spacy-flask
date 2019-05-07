@@ -34,12 +34,13 @@ def de():
     resp = {
        "success": True,
        "data": entities,
-       "user_def_tags": user_def_tags
+       "tags": tags,
+       "excluded_tags": excluded_tags
     }
     return Response(json.dumps(resp), mimetype='application/json', headers={"Access-Control-Allow-Origin": "*"})
 
 
-@app.route("/en", methods=['POST'])
+@app.route("/en", methods=['POST', 'PUT'])
 def en():
     text = request.form.get('text')
     filterType =  request.form.get('type')
