@@ -5,11 +5,12 @@ import json
 
 app = Flask(__name__)
 
-@app.route("/de", methods=['POST'])
+@app.route("/de", methods=['PUT'])
 def de():
     text = request.form.get('text')
     filterType =  request.form.get('type')
-    user_def_tags = request.form.get('user_def_tags')
+    tags = request.form.get('tags')
+    excluded_tags = request.form.get('excluded_tags')
     if not text or text == '':
         return Response(json.dumps({ "sucess": False, "messages": ["No text submitted!"]}), mimetype='application/json')
     if filterType and not (filterType.upper() in ['PROPN', 'NOUN', 'VERB', 'ADP']):
